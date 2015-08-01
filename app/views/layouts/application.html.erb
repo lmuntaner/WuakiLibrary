@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WuakiLibrary</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if flash[:notice].present? %>
+  <div class="alert alert-danger" role="alert" hidden><%= flash[:notice] %></div>
+<% end %>
+
+<div class="container">
+  <%= yield %>
+</div>
+
+</body>
+</html>
