@@ -28,7 +28,7 @@ For instance, if the user purchases the movie '300: Rise of an Empire' and goes 
 - purchase a movie
 - Validate the register's form (format of email, username should not be nil and the passwords must be equal) The purchase must be done by ajax and if there is any error, the error must be displayed.
 
-__Notes:__
+**Notes:**
 
 - Implement the API and the rails app following the REST principles
 - Use any gem or library that you need
