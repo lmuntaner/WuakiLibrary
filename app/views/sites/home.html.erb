@@ -8,7 +8,17 @@
 <script type="text/javascript">
   $(function () {
     var items = new Library.Collections.Items();
-    items.reset(<%= @items %>);
-    var userItems = new Library.Collections.
+    items.reset(<%= @items.to_json.html_safe %>);
+    var userItems = new Library.Collections.UserLibrary({
+      userId: 12
+    });
+    userItems.reset(<%= @user_items.to_json.html_safe %>);
+    var $container = $('.wuaki-library-container');
+  	Library.initialize({
+  		container: $container,
+      items: items,
+      userItems, userItems,
+  		userId: 12
+  	})
   })
 </script>

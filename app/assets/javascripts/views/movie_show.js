@@ -25,7 +25,8 @@ Library.Views.MovieShow = Backbone.View.extend({
 		  },
 		  error: function(response) {
 				var errorMessage = response.responseJSON.errors.item[0]
-				view.$('.purchase-error').show().text(errorMessage)
+				view.$('.purchase-error').show().text(errorMessage);
+				view.$('.purchase').blur();
 		  }
 		});
 	},

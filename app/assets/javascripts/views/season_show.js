@@ -23,7 +23,9 @@ Library.Views.SeasonShow = Backbone.View.extend({
 				Backbone.history.navigate("my_library", { trigger: true });
 		  },
 		  error: function() {
-				console.log('Some error!')
+				var errorMessage = response.responseJSON.errors.item[0];
+				view.$('.purchase-error').show().text(errorMessage);
+				view.$('.purchase').blur();
 		  }
 		});
 	},

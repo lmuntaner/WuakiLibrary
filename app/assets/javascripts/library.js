@@ -3,16 +3,8 @@ window.Library = {
 	Collections: {},
 	Views: {},
 	Routers: {},
-	initialize: function ($container) {
-		new Library.Routers.AppRouter($container);
+	initialize: function (options) {
+		this.router = new Library.Routers.AppRouter(options);
 		Backbone.history.start();
 	}
 };
-
-$(function () {
-	var $container = $('.wuaki-library-container');
-	Library.initialize({
-		container: $container,
-		userId: 12
-	})
-});

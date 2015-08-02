@@ -6,30 +6,19 @@ Library.Routers.AppRouter = Backbone.Router.extend({
 	},
 
 	initialize: function (options) {
-		this.collection = new Library.Collections.Items();
-		this.collection.fetch();
     this.$rootEl = options.container;
 		this.userId = options.userId;
+		this.collection = options.items;
+		this.userLibrary = options.userItems;
 	},
 
 	index: function () {
+		// this.collection.fetch();
 		var indexView = new Library.Views.LibraryIndex({
 			collection: this.collection
 		});
 
     this._swapView(indexView);
-	},
-
-	userLibrary: function () {
-		var userLibrary = new Library.Collections.UserLibrary({
-			userId: this.userId
-		})
-		userLibrary.fetch();
-		var userIndexView = new Library.Views.UserLibraryIndex({
-			collection: userLibrary
-		});
-
-		this._swapView(userIndexView);
 	},
 
 	showItem: function (itemId) {
@@ -47,6 +36,15 @@ Library.Routers.AppRouter = Backbone.Router.extend({
 		}
 
     this._swapView(itemShowView);
+	},
+
+	userLibrary: function () {
+		// this.userLibrary.fetch();
+		var userIndexView = new Library.Views.UserLibraryIndex({
+			collection: this.userLibrary
+		});
+
+		this._swapView(userIndexView);
 	},
 
   _swapView: function(view) {
