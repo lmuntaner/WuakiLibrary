@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :movies, only: [:index]
     resources :seasons, only: [:index]
+    resources :items, only: [:show]
     resources :libraries, only: [:index]
     get 'libraries/:user_id' => 'libraries#show'
     resources :purchases, only: [:create]
