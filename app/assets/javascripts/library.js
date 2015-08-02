@@ -13,7 +13,6 @@ window.Library = {
 Backbone.CompositeView = Backbone.View.extend({
   addSubview: function (selector, subview) {
     this.subviews(selector).push(subview);
-    // Try to attach the subview. Render it as a convenience.
     this.attachSubview(selector, subview);
   },
 
@@ -31,22 +30,6 @@ Backbone.CompositeView = Backbone.View.extend({
       });
     });
   },
-
-
-	attachPrependSubview: function (selector, subview) {
-		this.$(selector).prepend(subview.render().$el);
-		subview.delegateEvents();
-	},
-
-	attachPrependSubviews: function () {
-		var view = this;
-		_(this.subviews()).each(function (subviews, selector) {
-			view.$(selector).empty();
-			_(subviews).each(function (subview) {
-				view.attachPrependSubview(selector, subview);
-			});
-		});
-	},
 
   remove: function () {
     Backbone.View.prototype.remove.call(this);
@@ -72,9 +55,6 @@ Backbone.CompositeView = Backbone.View.extend({
   },
 
   subviews: function (selector) {
-    // Map of selectors to subviews that live inside that selector.
-    // Optionally pass a selector and I'll initialize/return an array
-    // of subviews for the sel.
     this._subviews = this._subviews || {};
 
     if (!selector) {
