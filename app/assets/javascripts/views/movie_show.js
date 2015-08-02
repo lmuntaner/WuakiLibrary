@@ -6,6 +6,7 @@ Library.Views.MovieShow = Backbone.View.extend({
 	},
 
 	initialize: function (options) {
+		this.userLibrary = options.userLibrary;
 		this.listenTo(this.model, "sync add", this.render);
 	},
 
@@ -21,6 +22,7 @@ Library.Views.MovieShow = Backbone.View.extend({
 		  url: url,
 			data: purchase_params,
 		  success: function(purchase) {
+				view.userLibrary.add(view.model)
 				Backbone.history.navigate("my_library", { trigger: true });
 		  },
 		  error: function(response) {

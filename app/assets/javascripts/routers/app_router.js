@@ -13,7 +13,6 @@ Library.Routers.AppRouter = Backbone.Router.extend({
 	},
 
 	index: function () {
-		// this.collection.fetch();
 		var indexView = new Library.Views.LibraryIndex({
 			collection: this.collection
 		});
@@ -27,11 +26,13 @@ Library.Routers.AppRouter = Backbone.Router.extend({
 		var itemShowView
 		if (item.get('category') == "Movie") {
 	    itemShowView = new Library.Views.MovieShow({
-				model: item
+				model: item,
+				userLibrary: this.userLibrary
 			});
 		} else {
 			itemShowView = new Library.Views.SeasonShow({
-				model: item
+				model: item,
+				userLibrary: this.userLibrary
 			});
 		}
 
@@ -39,7 +40,6 @@ Library.Routers.AppRouter = Backbone.Router.extend({
 	},
 
 	userLibrary: function () {
-		// this.userLibrary.fetch();
 		var userIndexView = new Library.Views.UserLibraryIndex({
 			collection: this.userLibrary
 		});
