@@ -9,8 +9,10 @@ Library.Views.LibraryItem = Backbone.View.extend({
 	},
 
 	render: function () {
+		var icon = (this.model.get('category')) == 'Movie' ? 'ticket' : 'video-camera';
 		var renderedContent = this.template({
-      item: this.model
+      item: this.model,
+			icon: icon
     });
 		this.$el.html(renderedContent);
 
