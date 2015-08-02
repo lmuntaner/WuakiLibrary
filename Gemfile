@@ -33,6 +33,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Testing gem
 gem 'rspec-rails'
+gem 'capybara'
+gem 'selenium-webdriver'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

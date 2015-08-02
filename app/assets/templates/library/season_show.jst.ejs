@@ -1,25 +1,30 @@
-<h1><%= model.escape('title') %></h1>
-
-<% if (model.get('purchase_options')) { %>
-  <h4>Comprar</h4>
-  <% model.get('purchase_options').forEach(function (purchase_option) { %>
-    <button class="btn btn-primary btn-sm purchase" data-id="<%= purchase_option.id %>">
-      <%= purchase_option.quality %>
-    </button>
-    <%= purchase_option.price %> euros
-  <% }) %>
-<% } %>
-
-<h4>Episodes</h4>
 <div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-4">
-  <div class="list-group">
-    <% if (model.get('episodes')) { %>
-      <% model.get('episodes').forEach(function (episode) { %>
-        <a href="javascript:void(0)" class="list-group-item">
-          <%= episode.order %>. <%= episode.title %>
-        </a>
+  <div class="col-md-6 col-xs-12">
+
+    <h1><%= model.escape('title') %></h1>
+
+    <div class="alert alert-danger purchase-error" role="alert" hidden></div>
+
+    <% if (model.get('purchase_options')) { %>
+      <h4>Comprar</h4>
+      <% model.get('purchase_options').forEach(function (purchase_option) { %>
+        <button class="btn btn-primary btn-sm purchase" data-id="<%= purchase_option.id %>">
+          <%= purchase_option.quality %>
+        </button>
+        <%= purchase_option.price %> euros
       <% }) %>
-    <% } %>  
+    <% } %>
+
+    <h4>Episodes</h4>
+    <div class="list-group">
+      <% if (model.get('episodes')) { %>
+        <% model.get('episodes').forEach(function (episode) { %>
+          <a href="javascript:void(0)" class="list-group-item">
+            <%= episode.order %>. <%= episode.title %>
+          </a>
+        <% }) %>
+      <% } %>
+    </div>
+
   </div>
 </div>

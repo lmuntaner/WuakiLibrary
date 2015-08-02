@@ -15,6 +15,7 @@ Library.Views.SeasonShow = Backbone.View.extend({
 		var purchase_params = {
 			purchase_option_id: $(event.currentTarget).data('id')
 		}
+		var view = this;
 		$.ajax({
 		  type: 'POST',
 		  url: url,
@@ -22,7 +23,7 @@ Library.Views.SeasonShow = Backbone.View.extend({
 		  success: function(purchase) {
 				Backbone.history.navigate("my_library", { trigger: true });
 		  },
-		  error: function() {
+		  error: function(response) {
 				var errorMessage = response.responseJSON.errors.item[0];
 				view.$('.purchase-error').show().text(errorMessage);
 				view.$('.purchase').blur();
