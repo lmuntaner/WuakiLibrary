@@ -9,8 +9,12 @@ Library.Views.UserLibraryItem = Backbone.View.extend({
 	},
 
 	render: function () {
+		var purchasedDate = moment(this.model.get('created_at'));
+		var expirationDate = purchasedDate.clone().add(2, 'days');
+		var untilExpiration = moment.duration(expirationDate - purchasedDate)
 		var renderedContent = this.template({
-      item: this.model
+      item: this.model,
+			untilExpiration: untilExpiration
     });
 		this.$el.html(renderedContent);
 

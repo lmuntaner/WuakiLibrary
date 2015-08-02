@@ -16,6 +16,7 @@
 //= require underscore
 //= require backbone
 //= require jquery.serializejson
+//= require moment
 //= require users
 //= require library
 //= require_tree ./routers
