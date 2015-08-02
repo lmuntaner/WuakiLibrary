@@ -1,3 +1,16 @@
+The App
+=======
+
+Steps to setup the app:
+1. git clone
+2. bundle install
+3. rake db:create
+4. rake db:seed
+5. Run tests
+  - rspec spec/requests
+  - bundle exec cucumber
+
+
 The Problem
 ===========
 

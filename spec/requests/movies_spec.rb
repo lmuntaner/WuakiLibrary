@@ -12,14 +12,14 @@ RSpec.describe "Movies", type: :request do
       get api_movies_path(format: :json)
       data = JSON.parse(response.body)
 
-      expect(data['movies'].size).to eq(2)
+      expect(data.size).to eq(2)
     end
 
     it "returns the movies ordered by creation date" do
       get api_movies_path(format: :json)
       data = JSON.parse(response.body)
 
-      expect(data['movies'].first['title']).to eq('Fight Club')
+      expect(data.first['title']).to eq('Fight Club')
     end
   end
 end
