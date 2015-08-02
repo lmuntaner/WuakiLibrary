@@ -22,8 +22,12 @@
    float: right;
  }
 
- .sign-up-button {
+ .no-border-button {
    border: none;
+ }
+
+ .sign-up-dropdown {
+   display: inline-block;
  }
 
  .sign-up-container {

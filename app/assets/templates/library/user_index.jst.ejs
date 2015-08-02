@@ -1,0 +1,12 @@
+<h1>My Library</h1>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4"
+  <div class="list-group">
+    <% collection.each(function (item) { %>
+      <a href="#/items/<%= item.id %>" class="list-group-item">
+        <%= item.escape("title") %>
+      </a>
+    <% }) %>
+  </div>
+</div>

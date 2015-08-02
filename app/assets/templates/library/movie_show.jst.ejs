@@ -1,0 +1,12 @@
+<h1><%= model.escape('title') %></h1>
+
+<% if (model.get('purchase_options')) { %>
+  <h4>Comprar</h4>
+  <% model.get('purchase_options').forEach(function (purchase_option) { %>
+    <button class="btn btn-primary btn-sm"><%= purchase_option.quality %></button>
+    <%= purchase_option.price %> euros
+  <% }) %>
+<% } %>
+
+<h4>Plot:</h4>
+<p><%= model.escape('plot') %></p>

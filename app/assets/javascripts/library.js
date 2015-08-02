@@ -11,5 +11,8 @@ window.Library = {
 
 $(function () {
 	var $container = $('.wuaki-library-container');
-	Library.initialize({container: $container})
+	Library.initialize({
+		container: $container,
+		userId: 12
+	})
 });
