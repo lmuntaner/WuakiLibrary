@@ -1,12 +1,22 @@
-<h1><%= model.escape('title') %></h1>
+<div class="row">
+  <div class="col-md-6 col-xs-12">
 
-<% if (model.get('purchase_options')) { %>
-  <h4>Comprar</h4>
-  <% model.get('purchase_options').forEach(function (purchase_option) { %>
-    <button class="btn btn-primary btn-sm"><%= purchase_option.quality %></button>
-    <%= purchase_option.price %> euros
-  <% }) %>
-<% } %>
+    <h1><%= model.escape('title') %></h1>
 
-<h4>Plot:</h4>
-<p><%= model.escape('plot') %></p>
+    <div class="alert alert-danger purchase-error" role="alert" hidden></div>
+
+    <% if (model.get('purchase_options')) { %>
+      <h4>Comprar</h4>
+      <% model.get('purchase_options').forEach(function (purchase_option) { %>
+        <button class="btn btn-primary btn-sm purchase" data-id="<%= purchase_option.id %>">
+          <%= purchase_option.quality %>
+        </button>
+        <%= purchase_option.price %> euros
+      <% }) %>
+    <% } %>
+
+    <h4>Plot:</h4>
+    <p><%= model.escape('plot') %></p>
+
+  </div>
+</div>
