@@ -5,4 +5,5 @@ Feature: My Library
 
     Scenario: Sends a contact message
         Given I am on the initial page
-        And I click on my library button
+        And I click on the "Trainspotting" movie
+        And I buy the "HD" choice

@@ -5,13 +5,18 @@ Given /^I am on the initial page$/ do
     password: '1234',
     password_confirmation: '1234'
   )
-  item = Item.create!(title: 'Trainspotting', category: 'Movie')
-  second_item = Item.create!(title: 'Fight Club', category: 'Movie')
+  @item = Item.create!(title: 'Trainspotting', category: 'Movie')
+  @purchase_option = @item.purchase_options.create!(quality: 'HD', price: 2.99)
   visit root_path
   expect(page).to have_content('All The Movies')
 end
 
-Then /^I click on my library button$/ do
-  click_on 'my-library'
+Then /^I click on the "([^\"]*)" movie$/ do |movie_title|
+  click_link movie_title
+  expect(page).to have_content(@item.title)
+end
+
+Then /^I buy the "([^\"]*)" choice$/ do |quality_choice|
+  click_button quality_choice
   expect(page).to have_content('My Library')
 end
